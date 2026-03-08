@@ -185,9 +185,9 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 | 指标 | 数值 |
 |:---:|:---:|
 | 服务器数量 | ![servers](https://img.shields.io/bstats/servers/29949?style=flat-square&label=&color=8B5CF6) |
-| 操作系统 | Windows (1) |
-| CPU 核心数 | 12 (1) |
-| 服务器地区 | Japan (1) |
+| 操作系统 | - |
+| CPU 核心数 | - |
+| 服务器地区 | - |
 
 ![Servers using TreeCore](./docs/images/bstats-servers.png)
 
@@ -198,7 +198,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 
 **[查看完整统计图表 →](https://bstats.org/plugin/server-implementation/TreeCore)**
 
-<sub>数据每 6 小时通过 bStats API 自动更新 · 最近更新: 2026-03-08 12:45 UTC</sub>
+<sub>数据每 6 小时通过 bStats API 自动更新 · 最近更新: 2026-03-08 18:32 UTC</sub>
 <!-- BSTATS-STATS-END -->
 
 </div>
