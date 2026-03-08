@@ -23,7 +23,9 @@
   <strong><a href="#核心功能">功能概览</a></strong> ·
   <strong><a href="#为什么选择-treecore">性能对比</a></strong> ·
   <strong><a href="#web-管理面板">Web 面板</a></strong> ·
+  <strong><a href="#技术文档--wiki">技术文档</a></strong> ·
   <strong><a href="#游戏内命令">命令参考</a></strong> ·
+  <strong><a href="#常见问题">常见问题</a></strong> ·
   <strong><a href="#反馈与交流">社区交流</a></strong>
 </p>
 
@@ -31,6 +33,7 @@
   <a href="https://github.com/TreeMC-cloud/Tree/releases"><img src="https://img.shields.io/badge/立即下载-Releases-2563EB?style=for-the-badge&labelColor=0B0F1A" alt="立即下载"></a>
   <a href="#快速开始"><img src="https://img.shields.io/badge/3分钟上手-快速开始-16A34A?style=for-the-badge&labelColor=0B0F1A" alt="快速开始"></a>
   <a href="#web-管理面板"><img src="https://img.shields.io/badge/查看功能-Web%20Panel-7C3AED?style=for-the-badge&labelColor=0B0F1A" alt="查看 Web 面板"></a>
+  <a href="./docs/README.md"><img src="https://img.shields.io/badge/阅读文档-GitBook%20Wiki-F59E0B?style=for-the-badge&labelColor=0B0F1A" alt="阅读文档"></a>
 </p>
 
 </div>
@@ -107,6 +110,43 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 | **内容生产** | 模型上传、纹理上传、资源包 ZIP 托管、在线玩家资源包下发、粒子特效编辑 |
 | **生态集成** | CraftEngine、Multiverse、ItemsAdder 状态查看与操作入口 |
 | **生电支持** | 假人系统、红石热点分析 / 回放、TNT / 地毯复制开关 |
+
+## 技术文档 / Wiki
+
+为了让这个仓库不只是“展示页”，我把技术文档整理成了 **GitBook 友好的 Wiki 结构**。
+
+> 文档入口：[`docs/README.md`](./docs/README.md)
+>
+> 如果你之后要导入 GitBook，仓库里已经准备了 `docs/README.md + docs/SUMMARY.md` 的目录结构。
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 部署与接入
+- [快速开始](./docs/getting-started/quick-start.md)
+- [Web 面板访问](./docs/getting-started/web-panel.md)
+- [配置参考](./docs/reference/configuration.md)
+
+</td>
+<td width="33%" valign="top">
+
+### 运维与内容
+- [命令与日常运维](./docs/operations/commands.md)
+- [资源包 / 模型链路](./docs/operations/resource-pack.md)
+- [诊断与备份](./docs/operations/diagnostics-and-backups.md)
+
+</td>
+<td width="33%" valign="top">
+
+### 技术与架构
+- [系统架构总览](./docs/architecture/system-overview.md)
+- [集成与世界管理](./docs/operations/integrations-and-worlds.md)
+- [Web 资源同步机制](./docs/development/web-ui-pipeline.md)
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -785,6 +825,44 @@ TreeCore
 | **CraftEngine** | ✅ 内置桥接 |
 | **Multiverse** | ✅ 内置桥接 |
 | **ItemsAdder** | ✅ 内置桥接 |
+
+---
+
+## 常见问题
+
+### 1. Web 面板为什么默认打不开远程地址？
+
+因为当前默认配置是：
+
+- `webAllowRemote = false`
+- `webBindAddress = 127.0.0.1`
+
+也就是 **默认只允许本机访问**。如果你要开放给局域网或公网，请手动开启远程访问，并同时配置 `webRequireAuth` 与 `webAdminToken`。
+
+### 2. 资源包拖拽上传后，为什么玩家还没收到？
+
+当前正确流程是：
+
+1. 在资源包页拖拽或选择本地 `zip`
+2. 点击 **重载资源包**，刷新 SHA-1
+3. 点击 **远程下发在线玩家**
+
+如果你只上传但没重载 / 没下发，在线玩家不会自动收到。
+
+### 3. 红石和漏斗会不会被强行改节奏？
+
+不会默认强改。
+
+- 红石热点限流 / 回放属于显式功能，默认不开
+- 漏斗相关优化以压力保护为主，正常负载下尽量不干预
+
+### 4. 这个核心能直接替代现有 Paper 服吗？
+
+大多数场景下可以直接作为基于 Paper 的服务端核心使用，但仍建议：
+
+- 先在测试服验证重要插件
+- 先确认代理、菜单、资源包、模型链路是否符合你的服现状
+- 对高负载和生电玩法，优先从默认配置开始，再按需开启保护项
 
 ---
 
