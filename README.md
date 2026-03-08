@@ -22,39 +22,91 @@
   <strong><a href="#快速开始">快速开始</a></strong> ·
   <strong><a href="#核心功能">功能概览</a></strong> ·
   <strong><a href="#为什么选择-treecore">性能对比</a></strong> ·
-  <strong><a href="#游戏内命令">命令参考</a></strong> ·
   <strong><a href="#web-管理面板">Web 面板</a></strong> ·
-  <strong><a href="./SECURITY.md">安全策略</a></strong> ·
-  <strong><a href="./CONTRIBUTING.md">贡献指南</a></strong> ·
-  <strong><a href="#反馈与交流">QQ 群: 910574536</a></strong>
+  <strong><a href="#游戏内命令">命令参考</a></strong> ·
+  <strong><a href="#反馈与交流">社区交流</a></strong>
+</p>
+
+<p>
+  <a href="https://github.com/TreeMC-cloud/Tree/releases"><img src="https://img.shields.io/badge/立即下载-Releases-2563EB?style=for-the-badge&labelColor=0B0F1A" alt="立即下载"></a>
+  <a href="#快速开始"><img src="https://img.shields.io/badge/3分钟上手-快速开始-16A34A?style=for-the-badge&labelColor=0B0F1A" alt="快速开始"></a>
+  <a href="#web-管理面板"><img src="https://img.shields.io/badge/查看功能-Web%20Panel-7C3AED?style=for-the-badge&labelColor=0B0F1A" alt="查看 Web 面板"></a>
 </p>
 
 </div>
 
 ---
 
-## 仓库说明
+## 产品定位
 
-> 这是 **Tree 的公开说明仓库**，用于向使用者展示功能、文档、截图、安装方法与更新信息。
->
-> - 你现在看到的是：**公开可浏览内容**
-> - 如果你只是想了解、部署、对比和查看文档，这个仓库就够用了
+TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化** 的 Minecraft 服务端核心。
 
-### 这里能看到什么？
+它不只是在 `paper.yml` 里多塞几项配置，而是把这些能力做成一套完整产品：
 
-- 完整功能介绍与性能对比
-- 安装方式、命令说明、Web 面板说明
-- 实机截图、GIF 演示与 bStats 统计
-- 安全策略、贡献说明与后续更新信息
+- **运行时性能调优**：根据 TPS / MSPT / 玩家数 / 压力自动收敛参数
+- **内置 Web 运维面板**：控制台、诊断、资源包、模型、备份、集成都能直接管
+- **偏实战的服务器工具链**：假人、红石热点分析、启动脚本、JVM 参数、插件审计
+- **保持生态兼容**：继续站在 Paper 插件生态上工作，而不是另起一套体系
 
-### 如果你是使用者
+### 适合哪些服务器？
 
-建议按这个阅读顺序开始：
+<table>
+<tr>
+<td width="33%" valign="top">
 
-1. **快速开始**：先把服务端跑起来
-2. **核心功能**：确认它适不适合你的服
-3. **Web 管理面板**：了解可视化管理能力
-4. **游戏内命令**：掌握日常运维入口
+#### 生存 / 长周目服
+需要长期稳定运行，同时不想频繁手改大量配置。
+
+</td>
+<td width="33%" valign="top">
+
+#### 多世界 / 综合服
+需要世界管理、资源包、模型、ItemsAdder、第三方桥接一起协同。
+
+</td>
+<td width="33%" valign="top">
+
+#### 运维要求高的团队服
+希望把控制台、诊断、备份、配置调整放到统一面板里完成。
+
+</td>
+</tr>
+</table>
+
+### 你会得到什么？
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+**更稳的高峰表现**  
+动态视距、自动分层、网络压缩、传送预热、区块预载共同工作，优先稳定 TPS。
+
+</td>
+<td width="33%" valign="top">
+
+**更低的日常运维成本**  
+不再频繁 SSH、翻日志、手写脚本，很多操作直接在 Web 面板里完成。
+
+</td>
+<td width="33%" valign="top">
+
+**更完整的管理链路**  
+从模型、资源包、粒子特效，到世界、备份、控制台和诊断，形成统一入口。
+
+</td>
+</tr>
+</table>
+
+## 一眼看懂 TreeCore
+
+| 方向 | 你能直接用到的能力 |
+|---|---|
+| **性能** | 动态视距 / 模拟距离、4 档自动分层、Paper 配置热调、动态网络压缩 |
+| **运维** | Web 控制台、线程转储、内存快照、GC、备份、启动脚本、JVM 参数建议 |
+| **内容生产** | 模型上传、纹理上传、资源包 ZIP 托管、在线玩家资源包下发、粒子特效编辑 |
+| **生态集成** | CraftEngine、Multiverse、ItemsAdder 状态查看与操作入口 |
+| **生电支持** | 假人系统、红石热点分析 / 回放、TNT / 地毯复制开关 |
 
 ---
 
