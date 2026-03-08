@@ -1,22 +1,61 @@
 <div align="center">
 
-  # TreeCore
+<img src="./docs/images/控制台预览.png" alt="TreeCore 控制台预览" width="760"/>
 
-### 高性能 Minecraft 服务端核心 | 基于 Paper 1.21.x 深度优化
+<h1>TreeCore / Tree</h1>
 
-*以树根的稳定性承载底座，以树干的承压力应对高并发，以树冠的扩展性连接插件生态*
+<p><strong>高性能 Minecraft 服务端核心 | 基于 Paper 1.21.x 深度优化</strong></p>
 
-[![Stars](https://img.shields.io/github/stars/TreeMC-cloud/Tree?style=for-the-badge&logo=github&color=4F6EF7&labelColor=0B0F1A)](https://github.com/TreeMC-cloud/Tree/stargazers)
-[![Forks](https://img.shields.io/github/forks/TreeMC-cloud/Tree?style=for-the-badge&logo=github&labelColor=0B0F1A)](https://github.com/TreeMC-cloud/Tree/network/members)
-[![Last Commit](https://img.shields.io/github/last-commit/TreeMC-cloud/Tree?style=for-the-badge&logo=github&labelColor=0B0F1A)](https://github.com/TreeMC-cloud/Tree/commits/main)
-[![MC](https://img.shields.io/badge/Minecraft-1.21.x-16A34A?style=for-the-badge&logo=mojang-studios&logoColor=white&labelColor=0B0F1A)](https://papermc.io)
-[![Java](https://img.shields.io/badge/Java-21+-F97316?style=for-the-badge&logo=openjdk&logoColor=white&labelColor=0B0F1A)](https://adoptium.net)
-[![License](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge&labelColor=0B0F1A)](LICENSE)
-[![bStats Servers](https://img.shields.io/bstats/servers/29949?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTggMjBWMTBoMnYxMGgtMnptLTYgMFY0aDJ2MTZoLTJ6TTYgMjB2LTZoMnY2SDZ6Ii8+PC9zdmc+&label=%E6%9C%8D%E5%8A%A1%E5%99%A8&color=8B5CF6&labelColor=0B0F1A)](https://bstats.org/plugin/server-implementation/TreeCore)
+<p><em>以树根的稳定性承载底座，以树干的承压力应对高并发，以树冠的扩展性连接插件生态</em></p>
 
-**[快速开始](#快速开始)** · **[功能概览](#核心功能)** · **[性能对比](#为什么选择-treecore)** · **[命令参考](#游戏内命令)** · **[Web 面板](#web-管理面板)** · **[安全策略](./SECURITY.md)** · **[贡献指南](./CONTRIBUTING.md)** · **[QQ 群: 910574536](#反馈与交流)**
+<p>
+  <a href="https://github.com/TreeMC-cloud/Tree/stargazers"><img src="https://img.shields.io/github/stars/TreeMC-cloud/Tree?style=for-the-badge&logo=github&color=4F6EF7&labelColor=0B0F1A" alt="Stars"></a>
+  <a href="https://github.com/TreeMC-cloud/Tree/network/members"><img src="https://img.shields.io/github/forks/TreeMC-cloud/Tree?style=for-the-badge&logo=github&labelColor=0B0F1A" alt="Forks"></a>
+  <a href="https://github.com/TreeMC-cloud/Tree/commits/main"><img src="https://img.shields.io/github/last-commit/TreeMC-cloud/Tree?style=for-the-badge&logo=github&labelColor=0B0F1A" alt="Last Commit"></a>
+  <a href="https://papermc.io"><img src="https://img.shields.io/badge/Minecraft-1.21.x-16A34A?style=for-the-badge&logo=mojang-studios&logoColor=white&labelColor=0B0F1A" alt="Minecraft"></a>
+  <a href="https://adoptium.net"><img src="https://img.shields.io/badge/Java-21+-F97316?style=for-the-badge&logo=openjdk&logoColor=white&labelColor=0B0F1A" alt="Java"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge&labelColor=0B0F1A" alt="License"></a>
+  <a href="https://bstats.org/plugin/server-implementation/TreeCore"><img src="https://img.shields.io/bstats/servers/29949?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTggMjBWMTBoMnYxMGgtMnptLTYgMFY0aDJ2MTZoLTJ6TTYgMjB2LTZoMnY2SDZ6Ii8+PC9zdmc+&label=%E6%9C%8D%E5%8A%A1%E5%99%A8&color=8B5CF6&labelColor=0B0F1A" alt="bStats Servers"></a>
+</p>
+
+<p>
+  <strong><a href="#快速开始">快速开始</a></strong> ·
+  <strong><a href="#核心功能">功能概览</a></strong> ·
+  <strong><a href="#为什么选择-treecore">性能对比</a></strong> ·
+  <strong><a href="#游戏内命令">命令参考</a></strong> ·
+  <strong><a href="#web-管理面板">Web 面板</a></strong> ·
+  <strong><a href="./SECURITY.md">安全策略</a></strong> ·
+  <strong><a href="./CONTRIBUTING.md">贡献指南</a></strong> ·
+  <strong><a href="#反馈与交流">QQ 群: 910574536</a></strong>
+</p>
 
 </div>
+
+---
+
+## 仓库说明
+
+> 这是 **Tree 的公开说明仓库**，用于向使用者展示功能、文档、截图、安装方法与更新信息。
+>
+> - 你现在看到的是：**公开可浏览内容**
+> - 团队日常开发维护的是：**私有源码仓库 `Tree-private`**
+> - 如果你只是想了解、部署、对比和查看文档，这个仓库就够用了
+
+### 这里能看到什么？
+
+- 完整功能介绍与性能对比
+- 安装方式、命令说明、Web 面板说明
+- 实机截图、GIF 演示与 bStats 统计
+- 安全策略、贡献说明与后续更新信息
+
+### 如果你是使用者
+
+建议按这个阅读顺序开始：
+
+1. **快速开始**：先把服务端跑起来
+2. **核心功能**：确认它适不适合你的服
+3. **Web 管理面板**：了解可视化管理能力
+4. **游戏内命令**：掌握日常运维入口
 
 ---
 
