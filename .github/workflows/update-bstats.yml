@@ -1,0 +1,210 @@
+name: Update bStats README
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch bStats data and generate charts
+        run: |
+          python3 << 'PYEOF'
+          import json, re, urllib.request, datetime, os
+
+          PLUGIN_ID = 29949
+          CHARTS_DIR = "docs/images"
+          os.makedirs(CHARTS_DIR, exist_ok=True)
+
+          def fetch_json(path):
+              try:
+                  url = f"https://bstats.org/api/v1/plugins/{PLUGIN_ID}/{path}"
+                  req = urllib.request.Request(url, headers={"User-Agent": "TreeCore-CI"})
+                  with urllib.request.urlopen(req, timeout=15) as resp:
+                      return json.loads(resp.read().decode())
+              except Exception as e:
+                  print(f"  warn: fetch {path} failed: {e}")
+                  return None
+
+          def dl_chart(url, path):
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "TreeCore-CI"})
+                  with urllib.request.urlopen(req, timeout=30) as resp:
+                      with open(path, "wb") as f:
+                          f.write(resp.read())
+                  print(f"  saved: {path}")
+                  return True
+              except Exception as e:
+                  print(f"  warn: chart dl failed: {e}")
+                  return False
+
+          def qc_url(config, w=800, h=300):
+              s = json.dumps(config, separators=(",", ":"))
+              return f"https://quickchart.io/chart?c={urllib.request.quote(s)}&w={w}&h={h}&bkg=white&f=png"
+
+          def parse_series(data):
+              """Parse bStats chart data (handles dict, array, and drilldown formats)."""
+              items = []
+              if isinstance(data, dict):
+                  if "seriesData" in data:
+                      for d in data["seriesData"]:
+                          items.append((d["name"], d["y"]))
+                  else:
+                      for k, v in data.items():
+                          if isinstance(v, dict):
+                              items.append((k, sum(v.values())))
+                          elif isinstance(v, (int, float)):
+                              items.append((k, int(v)))
+              elif isinstance(data, list):
+                  for d in data:
+                      if isinstance(d, dict) and "name" in d:
+                          items.append((d["name"], d["y"]))
+              items.sort(key=lambda x: -x[1])
+              return items
+
+          def top_str(items, limit=3):
+              return ", ".join(f"{n} ({c})" for n, c in items[:limit]) or "-"
+
+          # ── 1. 服务器折线图 ──
+          print("1. Fetching server line chart...")
+          server_data = fetch_json("charts/servers/data?maxElements=720")
+          if server_data:
+              daily = {}
+              for ts, val in server_data:
+                  day = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%m-%d")
+                  daily[day] = max(daily.get(day, 0), val)
+              labels, values = list(daily.keys()), list(daily.values())
+              if len(labels) > 30:
+                  step = len(labels) // 30
+                  labels, values = labels[::step], values[::step]
+              cfg = {
+                  "type": "line",
+                  "data": {"labels": labels, "datasets": [{
+                      "label": "Servers using TreeCore", "data": values,
+                      "borderColor": "#10B981", "backgroundColor": "rgba(16,185,129,0.1)",
+                      "fill": True, "tension": 0.3, "pointRadius": 2,
+                      "pointBackgroundColor": "#10B981", "borderWidth": 2
+                  }]},
+                  "options": {
+                      "plugins": {
+                          "title": {"display": True, "text": "Servers using TreeCore",
+                                    "font": {"size": 16, "weight": "bold"}, "color": "#1F2937"},
+                          "legend": {"display": False}
+                      },
+                      "scales": {
+                          "y": {"beginAtZero": True, "ticks": {"precision": 0, "color": "#6B7280"},
+                                "grid": {"color": "rgba(107,114,128,0.15)"}},
+                          "x": {"ticks": {"color": "#6B7280", "maxTicksLimit": 12}, "grid": {"display": False}}
+                      }
+                  }
+              }
+              dl_chart(qc_url(cfg, 800, 300), f"{CHARTS_DIR}/bstats-servers.png")
+
+          # ── 2. OS 饼图 ──
+          print("2. Fetching OS pie chart...")
+          os_data = fetch_json("charts/os/data")
+          os_items = parse_series(os_data) if os_data else []
+          if os_items:
+              colors = ["#8B5CF6","#10B981","#F59E0B","#EF4444","#3B82F6","#EC4899"]
+              cfg = {
+                  "type": "doughnut",
+                  "data": {"labels": [i[0] for i in os_items[:6]],
+                           "datasets": [{"data": [i[1] for i in os_items[:6]],
+                                         "backgroundColor": colors[:len(os_items[:6])]}]},
+                  "options": {"plugins": {
+                      "title": {"display": True, "text": "Operating System",
+                                "font": {"size": 14, "weight": "bold"}, "color": "#1F2937"},
+                      "legend": {"position": "right", "labels": {"color": "#374151"}}
+                  }}
+              }
+              dl_chart(qc_url(cfg, 400, 250), f"{CHARTS_DIR}/bstats-os.png")
+
+          # ── 3. Core count 饼图 ──
+          print("3. Fetching core count pie chart...")
+          core_data = fetch_json("charts/coreCount/data")
+          core_items = parse_series(core_data) if core_data else []
+          if core_items:
+              colors2 = ["#3B82F6","#10B981","#F59E0B","#EF4444","#8B5CF6","#EC4899"]
+              cfg = {
+                  "type": "doughnut",
+                  "data": {"labels": [f"{i[0]} cores" for i in core_items[:6]],
+                           "datasets": [{"data": [i[1] for i in core_items[:6]],
+                                         "backgroundColor": colors2[:len(core_items[:6])]}]},
+                  "options": {"plugins": {
+                      "title": {"display": True, "text": "CPU Core Count",
+                                "font": {"size": 14, "weight": "bold"}, "color": "#1F2937"},
+                      "legend": {"position": "right", "labels": {"color": "#374151"}}
+                  }}
+              }
+              dl_chart(qc_url(cfg, 400, 250), f"{CHARTS_DIR}/bstats-cores.png")
+
+          # ── 4. Location ──
+          print("4. Fetching location data...")
+          loc_data = fetch_json("charts/location/data")
+          loc_items = parse_series(loc_data) if loc_data else []
+
+          # ── 5. 更新 README ──
+          now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+          os_str = top_str(os_items)
+          core_str = top_str(core_items)
+          loc_str = top_str(loc_items)
+
+          bsv = "![servers](https://img.shields.io/bstats/servers/29949?style=flat-square&label=&color=8B5CF6)"
+
+          charts_md = ""
+          if os.path.exists(f"{CHARTS_DIR}/bstats-servers.png"):
+              charts_md += "![Servers using TreeCore](./docs/images/bstats-servers.png)\n\n"
+          pie_parts = []
+          if os.path.exists(f"{CHARTS_DIR}/bstats-os.png"):
+              pie_parts.append('<td><img src="./docs/images/bstats-os.png" width="400"></td>')
+          if os.path.exists(f"{CHARTS_DIR}/bstats-cores.png"):
+              pie_parts.append('<td><img src="./docs/images/bstats-cores.png" width="400"></td>')
+          if pie_parts:
+              charts_md += "<table><tr>\n" + "\n".join(pie_parts) + "\n</tr></table>\n\n"
+
+          new_block = f"""<!-- BSTATS-STATS-START -->
+          | 指标 | 数值 |
+          |:---:|:---:|
+          | 服务器数量 | {bsv} |
+          | 操作系统 | {os_str} |
+          | CPU 核心数 | {core_str} |
+          | 服务器地区 | {loc_str} |
+
+          {charts_md}**[查看完整统计图表 →](https://bstats.org/plugin/server-implementation/TreeCore)**
+
+          <sub>数据每 6 小时通过 bStats API 自动更新 · 最近更新: {now}</sub>
+          <!-- BSTATS-STATS-END -->"""
+
+          new_block = "\n".join(line.lstrip() for line in new_block.splitlines())
+
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+          pattern = r"<!-- BSTATS-STATS-START -->.*?<!-- BSTATS-STATS-END -->"
+          if re.search(pattern, content, re.DOTALL):
+              updated = re.sub(pattern, new_block, content, flags=re.DOTALL)
+              if updated != content:
+                  with open("README.md", "w", encoding="utf-8") as f:
+                      f.write(updated)
+                  print("README.md updated!")
+              else:
+                  print("No changes.")
+          else:
+              print("warn: markers not found")
+          PYEOF
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || {
+            git commit -m "chore: auto-update bStats statistics and charts"
+            git push
+          }
