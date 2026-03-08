@@ -4,13 +4,18 @@
 - 入门
   - [快速开始](getting-started/quick-start.md)
   - [Web 面板访问](getting-started/web-panel.md)
+  - [首次上线检查清单](getting-started/first-day-checklist.md)
 - 运维
+  - [Web 页面总览](operations/web-pages-overview.md)
   - [命令与日常运维](operations/commands.md)
   - [资源包 / 模型链路](operations/resource-pack.md)
   - [集成与世界管理](operations/integrations-and-worlds.md)
+  - [假人 / 红石运维](operations/fakeplayer-and-redstone.md)
   - [诊断与备份](operations/diagnostics-and-backups.md)
 - 参考
   - [配置参考](reference/configuration.md)
+  - [命令速查表](reference/command-cheatsheet.md)
 - 技术视角
   - [系统架构总览](architecture/system-overview.md)
+  - [模块地图](architecture/module-map.md)
   - [Web 资源同步机制](development/web-ui-pipeline.md)

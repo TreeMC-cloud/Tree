@@ -117,7 +117,9 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 
 > 文档入口：[`docs/README.md`](./docs/README.md)
 >
-> 如果你之后要导入 GitBook，仓库里已经准备了 `docs/README.md + docs/SUMMARY.md` 的目录结构。
+> 目录入口：[`docs/SUMMARY.md`](./docs/SUMMARY.md)
+>
+> 如果你之后要导入 GitBook，仓库里已经准备了 `docs/README.md + docs/SUMMARY.md` 的标准结构。
 
 <table>
 <tr>
@@ -126,14 +128,15 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 ### 部署与接入
 - [快速开始](./docs/getting-started/quick-start.md)
 - [Web 面板访问](./docs/getting-started/web-panel.md)
-- [配置参考](./docs/reference/configuration.md)
+- [首次上线检查清单](./docs/getting-started/first-day-checklist.md)
 
 </td>
 <td width="33%" valign="top">
 
 ### 运维与内容
-- [命令与日常运维](./docs/operations/commands.md)
+- [Web 页面总览](./docs/operations/web-pages-overview.md)
 - [资源包 / 模型链路](./docs/operations/resource-pack.md)
+- [假人 / 红石运维](./docs/operations/fakeplayer-and-redstone.md)
 - [诊断与备份](./docs/operations/diagnostics-and-backups.md)
 
 </td>
@@ -141,7 +144,8 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 
 ### 技术与架构
 - [系统架构总览](./docs/architecture/system-overview.md)
-- [集成与世界管理](./docs/operations/integrations-and-worlds.md)
+- [模块地图](./docs/architecture/module-map.md)
+- [配置参考](./docs/reference/configuration.md)
 - [Web 资源同步机制](./docs/development/web-ui-pipeline.md)
 
 </td>
