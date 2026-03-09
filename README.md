@@ -266,7 +266,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 静态阈值</td>
 <td align="center">❌ 静态阈值</td>
 <td align="center">❌ 静态阈值</td>
-<td align="center"><b>✅ 核心特色</b></td>
+<td align="center"><b>✅ 核心特色（ACK 区块发送 / 高频包抑制 / 粒子节流 / 全局发送限速 / 多端口监听）</b></td>
 <td align="center"><b>✅ 动态压缩 + 包过滤</b></td>
 </tr>
 <tr>
@@ -298,7 +298,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">部分</td>
 <td align="center">部分</td>
 <td align="center">部分</td>
-<td align="center">部分</td>
+<td align="center">✅ AI 属性引用哈希</td>
 <td align="center"><b>✅ 热路径全覆盖</b></td>
 </tr>
 <tr>
@@ -322,7 +322,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
-<td align="center">❌</td>
+<td align="center">✅ 实体推挤简化</td>
 <td align="center"><b>✅ MSPT 感知 O(n²) 优化</b></td>
 </tr>
 <tr>
@@ -338,7 +338,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">⚠️ DAB 修改 AI</td>
-<td align="center">❌</td>
+<td align="center">✅ 村民智能休眠</td>
 <td align="center"><b>✅ 保持原版 AI 行为</b></td>
 </tr>
 <tr>
@@ -346,7 +346,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">—</td>
 <td align="center">—</td>
 <td align="center">—</td>
-<td align="center"><b>✅ 定位条/珍珠/刷沙</b></td>
+<td align="center"><b>✅ 珍珠加载 / 刷沙 / 记分板 / 计划命令 / 随机传送等 8 项</b></td>
 <td align="center">—（基于 Paper）</td>
 </tr>
 <tr><td colspan="6"><b>管理工具</b></td></tr>
@@ -490,7 +490,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 </tr>
 </table>
 
-> **[Kitin（蜻蜓）](https://github.com/SucIXR/Kitin)** 是一个轻量级 Folia 分支，专注网络层优化与 Folia 特性修复（定位条、珍珠加载器、刷沙机等），保持"蜻蜓点水"式的极简改动。适合追求 Folia 多线程 + 极致轻量的生存服场景。TreeCore 基于 Paper，提供更全面的运维工具链、Web 管理面板和内容管理能力，两者定位不同，各有所长。
+> **[Kitin（蜻蜓）](https://github.com/SucIXR/Kitin)** 是一个轻量级 Folia 分支，核心特色是网络层深度优化（ACK 区块发送、高频实体包抑制、粒子节流打包、全局区块发送限速、多端口监听），同时修复了 Folia 破坏的 8 项特性（末影珍珠区块加载、安全沙子复制、记分板/计划/随机传送命令等），并提供村民智能休眠、实体推挤简化、投掷器传输优化、安全种子等实用能力。适合追求 Folia 多线程 + 极致网络优化的生存服场景。TreeCore 基于 Paper，提供更全面的运维工具链、Web 管理面板和内容管理能力，两者定位不同，各有所长。
 
 ### 核心差异总结
 
@@ -501,14 +501,14 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 | **优化方式** | 提供静态配置项，腐竹手动调参 + 重启生效 | 网络层深度优化，极简改动 | **运行时自动调参，主要参数可热更新** |
 | **CPU 利用** | 单线程 tick，多核 CPU 闲置 | Folia 原生多线程 | **多核工作线程池 + Java 21 虚拟线程** |
 | **人数应对** | 配置写死，高低峰同一套参数 | Folia 区域化分线程 | **4 档自动分层：30/60/150+ 人自动切换** |
-| **网络优化** | 无特殊优化 | **核心特色，带宽占用更低** | 动态压缩 + Delta 包过滤 + 广播收缩 |
-| **高密度实体** | 无特殊优化（Pufferfish DAB 修改 AI） | 无特殊优化 | **碰撞节流 + 寻路缓存 + 智能降频，优先保持原版体验** |
+| **网络优化** | 无特殊优化 | **核心特色：ACK 区块发送、高频包抑制、粒子节流、全局限速、多端口** | 动态压缩 + Delta 包过滤 + 广播收缩 |
+| **高密度实体** | 无特殊优化（Pufferfish DAB 修改 AI） | 实体推挤简化 + 村民智能休眠 | **碰撞节流 + 寻路缓存 + 智能降频，优先保持原版体验** |
 | **管理工具** | 无，需第三方 | 无 | **内置 11 页 Web 面板 + BossBar + 审计** |
 | **插件兼容** | 高 | ⚠️ 受 Folia 限制 | **高兼容（Paper 生态）** |
 | **监控方式** | 需安装 Spark / Grafana 等外部工具 | 无内置监控 | **内置 Web 面板 + BossBar + `/tps` 一屏全览** |
 | **学习门槛** | 需理解 Paper/Spigot 几十项配置含义 | 极简，保留 Folia 原始风味 | **开箱可用，主要性能优化默认启用** |
-| **生电支持** | 需安装 Carpet mod 或第三方假人插件 | ✅ 修复 Folia 破坏的特性 | **内置假人系统 + 红石热点分析 + Web 管理** |
-| **游戏影响** | Pufferfish DAB 会修改远处 AI 行为 | 保持原版，极简改动 | **默认优先保持原版；保护项按需显式开启** |
+| **生电支持** | 需安装 Carpet mod 或第三方假人插件 | ✅ 安全沙子复制 + TNT 修复 | **内置假人系统 + 红石热点分析 + Web 管理** |
+| **游戏影响** | Pufferfish DAB 会修改远处 AI 行为 | 保持原版，极简改动 + 安全种子 | **默认优先保持原版；保护项按需显式开启** |
 
 ---
 
