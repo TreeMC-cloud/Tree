@@ -213,22 +213,25 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 
 <table>
 <tr>
-<th align="left" width="220">能力维度</th>
-<th align="center" width="130">Paper</th>
-<th align="center" width="130">Purpur</th>
-<th align="center" width="130">Pufferfish</th>
-<th align="center" width="180"><b>TreeCore</b> ✅</th>
+<th align="left" width="200">能力维度</th>
+<th align="center" width="110">Paper</th>
+<th align="center" width="110">Purpur</th>
+<th align="center" width="110">Pufferfish</th>
+<th align="center" width="110"><a href="https://github.com/SucIXR/Kitin">Kitin</a></th>
+<th align="center" width="160"><b>TreeCore</b> ✅</th>
 </tr>
-<tr><td colspan="5"><b>性能优化</b></td></tr>
+<tr><td colspan="6"><b>性能优化</b></td></tr>
 <tr>
 <td>动态视距调整</td>
 <td align="center">❌ 手动改配置</td>
 <td align="center">❌ 手动改配置</td>
 <td align="center">❌ 手动改配置</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 自动 2~10 档</b></td>
 </tr>
 <tr>
 <td>动态模拟距离</td>
+<td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
@@ -239,10 +242,12 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 手动 + 重启</td>
 <td align="center">❌ 手动 + 重启</td>
 <td align="center">❌ 手动 + 重启</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 14 项参数热调</b></td>
 </tr>
 <tr>
 <td>自动分层预设</td>
+<td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
@@ -253,24 +258,28 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ MSPT>45ms 触发</b></td>
 </tr>
 <tr>
-<td>动态网络压缩</td>
+<td>网络优化</td>
 <td align="center">❌ 静态阈值</td>
 <td align="center">❌ 静态阈值</td>
 <td align="center">❌ 静态阈值</td>
-<td align="center"><b>✅ 按玩家数自适应</b></td>
+<td align="center"><b>✅ 核心特色</b></td>
+<td align="center"><b>✅ 动态压缩 + 包过滤</b></td>
 </tr>
 <tr>
 <td>区块预生成</td>
 <td align="center">❌ 需装 Chunky</td>
 <td align="center">❌ 需装 Chunky</td>
 <td align="center">❌ 需装 Chunky</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 方向预测 + 异步</b></td>
 </tr>
 <tr>
 <td>自动低谷 GC</td>
+<td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
@@ -281,10 +290,12 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 自动检测恢复</b></td>
 </tr>
 <tr>
 <td>fastutil 原始集合</td>
+<td align="center">部分</td>
 <td align="center">部分</td>
 <td align="center">部分</td>
 <td align="center">部分</td>
@@ -295,6 +306,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 池化复用</b></td>
 </tr>
 <tr>
@@ -302,10 +314,12 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 单线程</td>
 <td align="center">❌ 单线程</td>
 <td align="center">❌ 单线程</td>
+<td align="center">✅ Folia 多线程</td>
 <td align="center"><b>✅ 工作线程池 + 虚拟线程</b></td>
 </tr>
 <tr>
 <td>碰撞检测节流</td>
+<td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
@@ -316,6 +330,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ MSPT 感知 + 异步寻路</b></td>
 </tr>
 <tr>
@@ -323,14 +338,24 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">⚠️ DAB 修改 AI</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 保持原版 AI 行为</b></td>
 </tr>
-<tr><td colspan="5"><b>管理工具</b></td></tr>
+<tr>
+<td>Folia 特性修复</td>
+<td align="center">—</td>
+<td align="center">—</td>
+<td align="center">—</td>
+<td align="center"><b>✅ 定位条/珍珠/刷沙</b></td>
+<td align="center">—（基于 Paper）</td>
+</tr>
+<tr><td colspan="6"><b>管理工具</b></td></tr>
 <tr>
 <td>Web 管理面板</td>
 <td align="center">❌ 需第三方面板</td>
 <td align="center">❌ 需第三方面板</td>
 <td align="center">❌ 需第三方面板</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 内置 11 页面板</b></td>
 </tr>
 <tr>
@@ -338,6 +363,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需装 Spark</td>
 <td align="center">❌ 需装 Spark</td>
 <td align="center">❌ 需装 Spark</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ /tc tpsbar</b></td>
 </tr>
 <tr>
@@ -345,10 +371,12 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需人工查阅</td>
 <td align="center">❌ 需人工查阅</td>
 <td align="center">❌ 需人工查阅</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ /tc jvmflags</b></td>
 </tr>
 <tr>
 <td>启动脚本自动生成</td>
+<td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
@@ -359,6 +387,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需装 Spark</td>
 <td align="center">❌ 需装 Spark</td>
 <td align="center">❌ 需装 Spark</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ /tc audit</b></td>
 </tr>
 <tr>
@@ -366,6 +395,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需 RCON</td>
 <td align="center">❌ 需 RCON</td>
 <td align="center">❌ 需 RCON</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ Web 实时</b></td>
 </tr>
 <tr>
@@ -373,6 +403,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需 SSH</td>
 <td align="center">❌ 需 SSH</td>
 <td align="center">❌ 需 SSH</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ Web 一键</b></td>
 </tr>
 <tr>
@@ -380,18 +411,21 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需装插件</td>
 <td align="center">❌ 需装插件</td>
 <td align="center">❌ 需装插件</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 内置</b></td>
 </tr>
-<tr><td colspan="5"><b>游戏功能</b></td></tr>
+<tr><td colspan="6"><b>游戏功能</b></td></tr>
 <tr>
 <td>假人系统 (Carpet 风格)</td>
 <td align="center">❌ 需装 Carpet</td>
 <td align="center">❌ 需装 Carpet</td>
 <td align="center">❌ 需装 Carpet</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 内置完整系统</b></td>
 </tr>
 <tr>
 <td>粒子特效编辑器</td>
+<td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
@@ -402,6 +436,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌ 需装插件</td>
 <td align="center">❌ 需装插件</td>
 <td align="center">❌ 需装插件</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 内置 + 资源包</b></td>
 </tr>
 <tr>
@@ -409,14 +444,16 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">❌</td>
 <td align="center">❌</td>
 <td align="center">❌</td>
+<td align="center">❌</td>
 <td align="center"><b>✅ 一键同步</b></td>
 </tr>
-<tr><td colspan="5"><b>原版兼容性</b></td></tr>
+<tr><td colspan="6"><b>原版兼容性</b></td></tr>
 <tr>
 <td>红石机制</td>
 <td align="center">✅ 原版</td>
 <td align="center">⚠️ 可选修改</td>
 <td align="center">⚠️ 可选修改</td>
+<td align="center">✅ 原版</td>
 <td align="center"><b>✅ 默认原版 / 可选热点保护</b></td>
 </tr>
 <tr>
@@ -424,6 +461,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">✅ 原版</td>
 <td align="center">⚠️ 可选修改</td>
 <td align="center">⚠️ 可选修改</td>
+<td align="center">✅ 原版</td>
 <td align="center"><b>⚠️ 压力下可动态节流</b></td>
 </tr>
 <tr>
@@ -431,10 +469,12 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">✅ 原版</td>
 <td align="center">✅ 原版</td>
 <td align="center">⚠️ DAB 会修改</td>
+<td align="center">✅ 原版</td>
 <td align="center"><b>✅ 保持原版 AI</b></td>
 </tr>
 <tr>
 <td>碰撞 / 伤害</td>
+<td align="center">✅ 原版</td>
 <td align="center">✅ 原版</td>
 <td align="center">✅ 原版</td>
 <td align="center">✅ 原版</td>
@@ -445,18 +485,26 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 <td align="center">✅</td>
 <td align="center">✅</td>
 <td align="center">✅</td>
+<td align="center">⚠️ Folia 限制</td>
 <td align="center"><b>✅ 高兼容</b></td>
 </tr>
 </table>
 
+> **[Kitin（蜻蜓）](https://github.com/SucIXR/Kitin)** 是一个轻量级 Folia 分支，专注网络层优化与 Folia 特性修复（定位条、珍珠加载器、刷沙机等），保持"蜻蜓点水"式的极简改动。适合追求 Folia 多线程 + 极致轻量的生存服场景。TreeCore 基于 Paper，提供更全面的运维工具链、Web 管理面板和内容管理能力，两者定位不同，各有所长。
+
 ### 核心差异总结
 
-| | Paper / Purpur / Pufferfish | **TreeCore** |
-|---|---|---|
-| **优化方式** | 提供静态配置项，腐竹手动调参 + 重启生效 | **运行时自动调参，主要参数可热更新** |
-| **CPU 利用** | 单线程 tick，多核 CPU 闲置 | **多核工作线程池 + Java 21 虚拟线程** |
-| **人数应对** | 配置写死，高低峰同一套参数 | **4 档自动分层：30/60/150+ 人自动切换** |
-| **高密度实体** | 无特殊优化（Pufferfish DAB 修改 AI） | **碰撞节流 + 寻路缓存 + 智能降频，优先保持原版体验** |
+| | Paper / Purpur / Pufferfish | [Kitin](https://github.com/SucIXR/Kitin) | **TreeCore** |
+|---|---|---|---|
+| **基于** | CraftBukkit / Paper | Folia | Paper 1.21.x |
+| **定位** | 通用基础核心 | 轻量网络优化 | 全功能运维平台 |
+| **优化方式** | 提供静态配置项，腐竹手动调参 + 重启生效 | 网络层深度优化，极简改动 | **运行时自动调参，主要参数可热更新** |
+| **CPU 利用** | 单线程 tick，多核 CPU 闲置 | Folia 原生多线程 | **多核工作线程池 + Java 21 虚拟线程** |
+| **人数应对** | 配置写死，高低峰同一套参数 | Folia 区域化分线程 | **4 档自动分层：30/60/150+ 人自动切换** |
+| **网络优化** | 无特殊优化 | **核心特色，带宽占用更低** | 动态压缩 + Delta 包过滤 + 广播收缩 |
+| **高密度实体** | 无特殊优化（Pufferfish DAB 修改 AI） | 无特殊优化 | **碰撞节流 + 寻路缓存 + 智能降频，优先保持原版体验** |
+| **管理工具** | 无，需第三方 | 无 | **内置 11 页 Web 面板 + BossBar + 审计** |
+| **插件兼容** | 高 | ⚠️ 受 Folia 限制 | **高兼容（Paper 生态）** |
 | **监控方式** | 需安装 Spark / Grafana 等外部工具 | **内置 Web 面板 + BossBar + `/tps` 一屏全览** |
 | **学习门槛** | 需理解 Paper/Spigot 几十项配置含义 | **开箱可用，主要性能优化默认启用** |
 | **生电支持** | 需安装 Carpet mod 或第三方假人插件 | **内置假人系统 + 红石热点分析 + Web 管理** |
