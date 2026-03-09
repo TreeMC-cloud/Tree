@@ -198,7 +198,7 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 
 **[查看完整统计图表 →](https://bstats.org/plugin/server-implementation/TreeCore)**
 
-<sub>数据每 6 小时通过 bStats API 自动更新 · 最近更新: 2026-03-08 18:32 UTC</sub>
+<sub>数据每 6 小时通过 bStats API 自动更新 · 最近更新: 2026-03-09 02:01 UTC</sub>
 <!-- BSTATS-STATS-END -->
 
 </div>
