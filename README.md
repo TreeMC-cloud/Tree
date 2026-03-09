@@ -183,17 +183,11 @@ TreeCore 是一个面向 **高并发、长时间运行、强调运维可视化**
 
 <!-- BSTATS-STATS-START -->
 
-**在线玩家数**
-
-<img src="https://bstats.org/signatures/server-implementation/TreeCore/players.svg" alt="Players" width="600"/>
-
-**服务器数量**
-
-<img src="https://bstats.org/signatures/server-implementation/TreeCore/servers.svg" alt="Servers" width="600"/>
+<img src="https://bstats.org/signatures/server-implementation/TreeCore.svg" alt="bStats — Servers & Players" width="700"/>
 
 **[查看完整统计图表 →](https://bstats.org/plugin/server-implementation/TreeCore)**
 
-<sub>图表数据由 bStats 自动更新（约每 30 分钟上报一次）</sub>
+<sub>图表数据由 bStats 自动更新</sub>
 <!-- BSTATS-STATS-END -->
 
 </div>
