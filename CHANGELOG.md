@@ -2,10 +2,23 @@
 
 > 按时间倒序排列，最新的在最上面。
 
+## 2026-03-10
+
+- 官网首页和特性页全面重写，展示完整功能清单
+- 公开仓库 README 补全 Kitin 引擎 17 个补丁详情
+- 公开仓库 README 补全 Web 面板 12 个页面描述
+- 公开仓库 README 补全 80+ 运行时配置参数说明
+- 统一构建命令为 applyPatches + createMojmapBundlerJar
+- 构建产物自动命名 TreeCore-Dev-X.X.X.jar 并上传 Release
+- 自动从 git commit 提取更新日志
+
 ## 2026-03-09
 
 - 新增 bStats 在线玩家数量统计
 - 新增 Kitin 核心对比（完整 patch 级分析）
+- 新增官网下载页免责弹窗，勾选后才能下载
+- 新增官网更新日志区域，自动同步仓库 CHANGELOG
+- 首页和下载页加入早期开发阶段警示与免责声明
 - 修复 bStats 签名图表 URL
 - 更新 README 统计图表区域
 
